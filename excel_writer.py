@@ -61,11 +61,18 @@ for text in cell_range_to_execute:
 
 
         counter += 1
+        wb.save('try.xlsx')
     except:
+        sheet[f'H{counter}'] = "попало в обработку ошибки"
         counter += 1
-        sheet[f'H{counter}'] = "не сработало"
+        wb.save('try.xlsx')
         continue
 
+    # except ValueError:
+    #     counter += 1
+    #     sheet[f'G{counter}'] = "не сработало"
+    #     wb.save('try.xlsx')
+    #     continue
     # if text.value == " ":
     #     counter += 1
     #     counter_check += 1
@@ -123,6 +130,6 @@ for text in cell_range_to_execute:
     #     break
     # break
 
-    wb.save('try.xlsx')
+    #wb.save('try.xlsx')
 
 print(datetime.now() - start_time)
